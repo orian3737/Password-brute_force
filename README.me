@@ -1,0 +1,91 @@
+# Password Brute Force and Common Guessing Tool
+
+This Python program is designed to test password strength by attempting to brute force a password and check if it matches any commonly used passwords. The tool can be useful for educational purposes, security awareness, or testing the robustness of passwords in a controlled environment.
+
+## Features
+- **Common Password Check**: Compares the given password against a list of 10,000 of the most common passwords stored in `words.txt`.
+- **Brute Force Attack**: Attempts to guess the password using all possible combinations of:
+  - Lowercase letters
+  - Optional digits
+  - Optional symbols
+- **Dynamic Length Adjustment**: Supports brute-forcing passwords of lengths between 3 and 5 characters.
+
+## How It Works
+1. The program first checks if the password matches any common password in `words.txt`.
+2. If no match is found, it proceeds to brute-force the password by:
+   - Generating all possible combinations of characters for specified lengths.
+   - Comparing each generated guess against the target password.
+
+## Requirements
+- Python 3.7 or later
+
+## Installation
+1. Clone or download this repository to your local machine.
+2. Ensure Python is installed on your system.
+3. Place the list of common passwords in a file named `words.txt` in the same directory as the script. The `words.txt` file should contain 10,000 of the most common passwords, one per line.
+
+## Usage
+1. Open the script and set the `password` variable in the `main()` function to the password you want to test:
+   ```python
+   password: str = 'Password1' # Add password here to brute force
+Run the script:
+
+bash
+Copy code
+python main.py
+View the results:
+
+If the password matches a common password, it will display the match.
+If not, it will attempt brute-force guessing and display the result.
+Example Output
+Common Password Match:
+python
+Copy code
+Searching...
+Common match: password123 (#12)
+0.03 s
+Brute Force Match:
+arduino
+Copy code
+Searching...
+"abc1" was cracked in 1,234 guesses
+5.67 s
+No Match Found:
+lua
+Copy code
+Searching...
+There was no match...
+6.45 s
+File Structure
+main.py: The Python script containing the program logic.
+words.txt: A text file containing 10,000 of the most common passwords, one per line.
+Customization
+Password Length: Adjust the range in the main() function:
+python
+Copy code
+for i in range(3, 6):  # Modify the range as needed
+Character Set: Enable or disable digits and symbols in the brute_force function:
+python
+Copy code
+brute_force(password, length=i, digits=True, symbols=False)
+Disclaimer
+This program is for educational purposes only. Do not use it to access unauthorized accounts or systems. Always ensure you have permission to test passwords or security systems.
+
+License
+This project is open-source and available under the MIT License.
+
+Author
+Developed by [Your Name]. Feel free to reach out with questions or suggestions!
+
+yaml
+Copy code
+
+---
+
+### Key Updates:
+1. **Mentioned `words.txt` Details**:
+   - Explicitly stated that `words.txt` contains 10,000 of the most common passwords.
+2. **File Structure Section**:
+   - Clarified that `words.txt` is a required file in the same directory as the script.
+
+Let me know if you need further refinements! 😊
