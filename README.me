@@ -1,100 +1,89 @@
-# Password Cracking Tool
+# Password Brute Force and Common Guessing Tool
 
-This Python script demonstrates the concepts of password security by attempting to brute force a password and checking if it matches common passwords from a word list. The tool supports both plain text and hashed passwords, making it versatile for educational purposes.
-
----
+This Python program is designed to test password strength by attempting to brute force a password and check if it matches any commonly used passwords. The tool can be useful for educational purposes, security awareness, or testing the robustness of passwords in a controlled environment.
 
 ## Features
+- **Common Password Check**: Compares the given password against a list of common passwords stored in `words.txt`.
+- **Brute Force Attack**: Attempts to guess the password using all possible combinations of:
+  - Lowercase letters
+  - Optional digits
+  - Optional symbols
+- **Dynamic Length Adjustment**: Supports brute-forcing passwords of lengths between 3 and 5 characters.
 
-- **Common Password Check**: Compares the target password against a word list of common passwords (`words.txt`).
-- **Brute Force Attack**: 
-  - Supports plain text passwords.
-  - Handles hashed passwords (using SHA-256).
-  - Allows dynamic configuration of character sets (letters, digits, symbols) and password length.
-- **Length Flexibility**: Accepts a range of lengths for brute-forcing.
-
----
+## How It Works
+1. The program first checks if the password matches any common password in `words.txt`.
+2. If no match is found, it proceeds to brute-force the password by:
+   - Generating all possible combinations of characters for specified lengths.
+   - Comparing each generated guess against the target password.
 
 ## Requirements
-
-- **Python**: Version 3.7 or higher.
-- **Dependencies**: No external libraries needed.
-
----
+- Python 3.7 or later
 
 ## Installation
-
-1. Clone or download the repository to your local machine.
+1. Clone or download this repository to your local machine.
 2. Ensure Python is installed on your system.
-3. Place a word list of common passwords in a file named `words.txt` in the same directory as the script.
-
----
+3. Place the list of common passwords in a file named `words.txt` in the same directory as the script.
 
 ## Usage
+1. Open the script and set the `password` variable in the `main()` function to the password you want to test:
+   ```python
+   password: str = 'Password1' # Add password here to brute force
+Run the script:
 
-1. Run the script:
-   ```bash
-   python main.py
-Follow the prompts:
-Specify whether the target password is plain text or hashed.
-Enter the minimum and maximum password lengths to test.
-Choose whether to include digits and symbols in the character set.
-Enter the target password or hash to crack.
-Example Run
-Input:
-plaintext
+bash
 Copy code
-Is your target password plain text or hashed? (plain/hashed): plain
-Enter the minimum password length to try: 3
-Enter the maximum password length to try: 5
-Include digits? (yes/no): yes
-Include symbols? (yes/no): no
-Enter the plain text password to crack: abc123
-Output:
-plaintext
+python main.py
+View the results:
+
+If the password matches a common password, it will display the match.
+If not, it will attempt brute-force guessing and display the result.
+Example Output
+Common Password Match:
+python
 Copy code
-Password Cracking Tool
 Searching...
-"abc123" was cracked in 12,345 guesses (length=6)
-Time elapsed: 34.56 seconds
+Common match: password123 (#12)
+0.03 s
+Brute Force Match:
+arduino
+Copy code
+Searching...
+"abc1" was cracked in 1,234 guesses
+5.67 s
+No Match Found:
+lua
+Copy code
+Searching...
+There was no match...
+6.45 s
 File Structure
-main.py: The Python script containing the password-cracking logic.
-words.txt: A file containing common passwords (one per line) used for the common password check.
+main.py: The Python script containing the program logic.
+words.txt: A text file containing common passwords, one per line.
+Customization
+Password Length: Adjust the range in the main() function:
+python
+Copy code
+for i in range(3, 6):  # Modify the range as needed
+Character Set: Enable or disable digits and symbols in the brute_force function:
+python
+Copy code
+brute_force(password, length=i, digits=True, symbols=False)
 Disclaimer
-This tool is intended for educational purposes only.
-
-The purpose of this project is to demonstrate the concepts of password security, brute-forcing techniques, and the importance of using strong, secure passwords. By using this tool, you agree to the following:
-
-Authorized Use Only:
-This tool should only be used on systems, accounts, or passwords that you own or have explicit permission to test. Unauthorized access or attempts to compromise systems or accounts that you do not own is illegal and unethical.
-
-Compliance with Laws:
-Ensure that your use of this tool complies with all applicable laws and regulations in your jurisdiction. Unauthorized password cracking is a violation of privacy and cybersecurity laws.
-
-Responsibility:
-The developer(s) of this tool are not responsible for any misuse, damage, or legal consequences that result from improper use of this tool.
-
-Educational Use Only:
-The tool is designed to help users understand the vulnerabilities of weak passwords and encourage the adoption of stronger security practices. It should not be used for malicious or unauthorized purposes under any circumstances.
-
-By proceeding, you acknowledge that you have read, understood, and agreed to this disclaimer.
+This program is for educational purposes only. Do not use it to access unauthorized accounts or systems. Always ensure you have permission to test passwords or security systems.
 
 License
 This project is open-source and available under the MIT License.
 
 Author
-Developed by Ryan Murzyn. Feel free to reach out with questions or suggestions!
+Developed by [Your Name]. Feel free to reach out with questions or suggestions!
 
-markdown
+yaml
 Copy code
 
 ---
 
-### What This Includes:
-1. **Detailed Features**: Outlines the capabilities of the script.
-2. **Requirements and Setup**: Explains prerequisites and installation steps.
-3. **Usage Instructions**: Provides a clear example of how to use the tool.
-4. **Disclaimer**: Ensures ethical and legal compliance by defining the boundaries of usage.
-5. **License**: Assigns the MIT license for open-source usage.
+### What to Do Next:
+1. Replace Ryan Murzyn with your actual name or username.
+2. Ensure the `words.txt` file is in the correct directory and populated with common passwords.
 
-Let me know if you’d like further tweaks! 😊
+Let me know if you need further adjustments! 😊
